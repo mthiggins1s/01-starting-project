@@ -13,6 +13,7 @@ export class UserTasksComponent implements OnInit {
   // getting hold of a path parameter value in a component thats loaded for a dynamic route, writted in the same was as the route
   // userId = input.required<string>();
   userName = '';
+  message = input.required<string>();
   private usersService = inject(UsersService);
   
   // gives you various properties that holds variation
@@ -22,6 +23,7 @@ export class UserTasksComponent implements OnInit {
   // userName = computed(() => this.usersService.users.find(u => u.id === this.userId())?.name);
 
   ngOnInit(): void {
+    console.log('Input Data: ' + this.message())
     console.log(this.activatedRoute.snapshot);
     const subscription = this.activatedRoute.paramMap.subscribe({
       next: paramMap => {

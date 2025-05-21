@@ -10,7 +10,8 @@ import { NotFoundComponent } from "./app/not-found/not-found.component";
 export const routes: Routes = [
   {
     path: '', // <your-domain>
-    component: NoTaskComponent,
+    // component: NoTaskComponent,
+    // pathMatch: 'full'
   },
   {
     // dynamic route
@@ -18,6 +19,10 @@ export const routes: Routes = [
     // component; has shared headers for all users; will output user specific tasks later
     component: UserTasksComponent,
     children: UserRoutes,
+    // allows you to define some data object; that object can hold any key value pairs
+    data: {
+      message: 'Hello!'
+    }
   },
   {
     path: '**',
